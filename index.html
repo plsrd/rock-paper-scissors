@@ -21,84 +21,117 @@
             return choices[num];
         }
 
+        function game() {
+            let playerScore = 0;
+            let computerScore = 0;
 
-        function playRound(playerSelection, computerSelection) {
-            playerSelection.toLowerCase();
-            //determine winner
-            if (playerSelection == 'rock'){
+            function playerChoice() { return prompt('Choose your weapon'); }
 
-                switch (computerSelection) {
+            function playRound(playerSelection, computerSelection) {
 
-                    case 'rock' : 
-                        return 'Tie!';
-                        break;
+                playerSelection.toLowerCase();
+                //determine winner
+                if (playerSelection === 'rock'){
 
-                    case 'paper' :
-                        return 'You lose! Paper beats rock!';
-                        break;
+                    switch (computerSelection) {
 
-                    case 'scissors' :
-                        return 'You win! Rock beats scissors!';
-                        break;
-                    
-                    default : 
-                        return 'rock broke';
-                        break;
-                    
-                }
+                        case 'rock' : 
+                            return alert('Tie!');
+                            break;
 
-            } else if (playerSelection == 'paper') {
-                switch (computerSelection) {
+                        case 'paper' :
+                            alert('You lose! Paper beats rock!');
+                            return computerScore += 1;
+                            
+                            break;
 
-                    case 'rock' : 
-                        return 'You win! Rock beats paper!';
-                        break;
+                        case 'scissors' :
+                            alert('You win! Rock beats scissors!');
+                            return playerScore += 1;
+                       
+                            break;
+                        
+                        default : 
+                            return alert('rock broke');
+                            break;
+                        
+                    }
 
-                    case 'paper' :
-                        return 'Tie!'
-                        break;
+                } else if (playerSelection === 'paper') {
+                    switch (computerSelection) {
 
-                    case 'scissors' :
-                        return 'You lose! Scissors beats paper.';
-                        break;
+                        case 'rock' : 
+                            alert('You win! Rock beats paper!');
+                            return playerScore += 1;
+                            break;
 
-                    default : 
-                        return 'paper broke';
-                        break;
+                        case 'paper' :
+                            return 'Tie!'
+                            break;
 
-                }
-            } else {
-                switch (computerSelection) {
+                        case 'scissors' :
+                            alert('You lose! Scissors beats paper.');
+                            return computerScore += 1;
+                            break;
 
-                    case 'rock' : 
-                        return 'You lose! Rock beats scissors.';
-                        computerScore += 1;
-                        break;
-
-                    case 'paper' :
-                        return 'You win! Scissors beats paper.'
-                        playerScore += 1;
-                        break;
-
-                    case 'scissors' :
-                        return 'Tie!'
-                        break;
-
-                    default : 
-                        return 'scissors broke';
-                        break;
+                        default : 
+                            return alert('paper broke');
+                            break;
 
                     }
+                } else if (playerSelection === 'scissors') {
+                    switch (computerSelection) {
+
+                        case 'rock' : 
+                            alert('You lose! Rock beats scissors.');
+                            return computerScore += 1;
+                            break;
+
+                        case 'paper' :
+                            playerScore += 1;
+                            return 'You win! Scissors beats paper.'
+                            break;
+
+                        case 'scissors' :
+                            return alert('Tie!');
+                            break;
+
+                        default : 
+                            return 'scissors broke';
+                            break;
+
+                        }
+                } else {
+                    alert('You didn\'t pick a valid weapon! You lose this round');
+                    return computerScore += 1;
+                }
+            }
+
+            for (i = 1; i <= 6; i++){
+
+                if (i < 6) {
+                playRound(playerChoice(), computerPlay());
+                console.log(playerScore + ' : ' + computerScore);
+                } else {
+                    switch (true){
+                        case (playerScore > computerScore) :
+                            alert(`Final score: Player - ${playerScore} : Computer - ${computerScore}. You win!`);
+                            break;
+
+                        case (computerScore > playerScore) :
+                            alert(`Final score: Player - ${playerScore} : Computer - ${computerScore}. You lose!`);
+                        
+                        default : 
+                            alert(`Final score: Player - ${playerScore} : Computer - ${computerScore}. Tie! Which is still basically losing!`)
+                    }
+                }
             }
         }
 
-        let playerScore = 0;
-        let computerScore = 0;
+        game();
 
-        let playerSelection =  prompt('Choose your weapon');
-        alert(playRound(playerSelection, computerPlay()));
 
-        function game() {
+        
 
             //create variables to store score
 
@@ -106,7 +139,7 @@
 
             //report the score and winner
 
-        }
+    
 
     </script>
 </body>
