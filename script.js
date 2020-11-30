@@ -96,7 +96,7 @@ function playRound(playerSelection, computerSelection) {
   playerSummary.classList.remove('invisible');
   computerSummary.classList.remove('invisible');
   chooseWeapon.textContent = 'Next round';
-  computerImage.src = `rock-paper-scissors/images/${computerMove}.png`;
+  computerImage.src = `/rock-paper-scissors/images/${computerMove}.png`;
   
   if (playerSelection === 'rock'){
     switch (computerSelection) {
@@ -193,21 +193,21 @@ function playRound(playerSelection, computerSelection) {
 
 
 paper.addEventListener('click', () => {
-  playerImage.src = "rock-paper-scissors/images/paper.png";
+  playerImage.src = "/rock-paper-scissors/images/paper.png";
   playerMove = 'paper';
   computerMove = computerPlay();
   playRound(playerMove, computerMove);
 });
 
 scissors.addEventListener('click', () => {
-  playerImage.src = "rock-paper-scissors/images/scissors.png";
+  playerImage.src = "/rock-paper-scissors/images/scissors.png";
   playerMove = 'scissors';
   computerMove = computerPlay();
   playRound(playerMove, computerMove);
 });
 
 rock.addEventListener('click', () => {
-  playerImage.src = "rock-paper-scissors/images/rock.png";
+  playerImage.src = "/rock-paper-scissors/images/rock.png";
   playerMove = 'rock';
   computerMove = computerPlay();
   playRound(playerMove, computerMove);
