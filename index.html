@@ -1,145 +1,50 @@
 <!DOCTYPE html>
 <head>
-    <title>Page Title</title>
-    <meta charset="UTF-8"/>
+  <meta charset="UTF-8"/>
+  <link rel="stylesheet" href="reset.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <title>Rock Paper Scissors</title>
 </head>
 <body>
-    <script>
-        function computerPlay() {
+  <div class="scoreBoard">
+    <h1>SCORE</h1>
+    <div class="scores">
+      <div id="playerScore">
+        <h2>Player</h2>
+        <h3 id='playerPoints'></h3>
+      </div>
+      <div id="computerScore">
+        <h2>Computer</h2>
+        <h3 id="computerPoints"></h3>
+      </div>
+    </div>
+  </div>
 
-            const choices = ['rock', 'paper', 'scissors'];
-            
-            //function for picking a random numer
-            function getIndex(min, max) {
-                min = Math.ceil(min);
-                max = Math.floor(max);
-                return Math.floor(Math.random() * (max - min + 1)) + min;
-            }
-            //get random index and store in a variable
-            let num = getIndex(0, choices.length-1);
+  <div class="roundResult" id="roundResult">
+    <div class="roundOutput pulse" id='roundOutput'>
+      <h2 id="result">Start Game</h2>
+      <p id="roundSummary">Best of 5 wins</p>
+    </div>
+    <div class="roundSelections">
+      <div class="choiceContainer" id="playerChoice">
+        <p class="invisible" id="playerSummary">Player Choice</p>
+        <img src="" id="playerImage">
+      </div>
+      <div class="choiceContainer" id="computerChoice">
+        <p class="invisible" id="computerSummary">Computer Choice</p>
+        <img id="computerImage" src="">
+      </div>
+    </div>
+  </div>
 
-            return choices[num];
-        }
+  <div id="headingContainer"><h2 class="invisible" id="chooseWeapon">Choose your weapon</h2></div>
+  <div class="pickWeapon invisible" id="playerChoices">
+    <div class="buttonBorder shrink" id="paper"><div class="buttonSpace"><img src="/images/paper.png"></div></div>
+    <div class="buttonBorder shrink" id="scissors"><div class="buttonSpace"><img src="/images/scissors.png"></div></div>
+    <div class="buttonBorder shrink" id="rock"><div class="buttonSpace"><img src="/images/rock.png"></div></div>
+  </div>
 
-        function game() {
-            let playerScore = 0;
-            let computerScore = 0;
-
-            function playerChoice() { return prompt('Choose your weapon'); }
-
-            function playRound(playerSelection, computerSelection) {
-
-                playerSelection.toLowerCase();
-                //determine winner
-                if (playerSelection === 'rock'){
-
-                    switch (computerSelection) {
-
-                        case 'rock' : 
-                            return alert('Tie!');
-                            break;
-
-                        case 'paper' :
-                            alert('You lose! Paper beats rock!');
-                            return computerScore += 1;
-                            
-                            break;
-
-                        case 'scissors' :
-                            alert('You win! Rock beats scissors!');
-                            return playerScore += 1;
-                       
-                            break;
-                        
-                        default : 
-                            return alert('rock broke');
-                            break;
-                        
-                    }
-
-                } else if (playerSelection === 'paper') {
-                    switch (computerSelection) {
-
-                        case 'rock' : 
-                            alert('You win! Rock beats paper!');
-                            return playerScore += 1;
-                            break;
-
-                        case 'paper' :
-                            return 'Tie!'
-                            break;
-
-                        case 'scissors' :
-                            alert('You lose! Scissors beats paper.');
-                            return computerScore += 1;
-                            break;
-
-                        default : 
-                            return alert('paper broke');
-                            break;
-
-                    }
-                } else if (playerSelection === 'scissors') {
-                    switch (computerSelection) {
-
-                        case 'rock' : 
-                            alert('You lose! Rock beats scissors.');
-                            return computerScore += 1;
-                            break;
-
-                        case 'paper' :
-                            playerScore += 1;
-                            return 'You win! Scissors beats paper.'
-                            break;
-
-                        case 'scissors' :
-                            return alert('Tie!');
-                            break;
-
-                        default : 
-                            return 'scissors broke';
-                            break;
-
-                        }
-                } else {
-                    alert('You didn\'t pick a valid weapon! You lose this round');
-                    return computerScore += 1;
-                }
-            }
-
-            for (i = 1; i <= 6; i++){
-
-                if (i < 6) {
-                playRound(playerChoice(), computerPlay());
-                console.log(playerScore + ' : ' + computerScore);
-                } else {
-                    switch (true){
-                        case (playerScore > computerScore) :
-                            alert(`Final score: Player - ${playerScore} : Computer - ${computerScore}. You win!`);
-                            break;
-
-                        case (computerScore > playerScore) :
-                            alert(`Final score: Player - ${playerScore} : Computer - ${computerScore}. You lose!`);
-                        
-                        default : 
-                            alert(`Final score: Player - ${playerScore} : Computer - ${computerScore}. Tie! Which is still basically losing!`)
-                    }
-                }
-            }
-        }
-
-        game();
-
-
-        
-
-            //create variables to store score
-
-            //create a loop that play playRound 5 times
-
-            //report the score and winner
-
-    
-
-    </script>
+    <script type="text/javascript" src="script.js"></script>
 </body>
