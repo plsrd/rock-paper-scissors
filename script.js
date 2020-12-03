@@ -96,7 +96,11 @@ function playRound(playerSelection, computerSelection) {
   playerSummary.classList.remove('invisible');
   computerSummary.classList.remove('invisible');
   chooseWeapon.textContent = 'Next round';
+<<<<<<< HEAD
   computerImage.src = `/images/${computerMove}.png`;
+=======
+  computerImage.src = `images/${computerMove}.png`;
+>>>>>>> f6faaf2252d8992166320eab85a26dd6635fb851
   
   if (playerSelection === 'rock'){
     switch (computerSelection) {
@@ -193,21 +197,33 @@ function playRound(playerSelection, computerSelection) {
 
 
 paper.addEventListener('click', () => {
+<<<<<<< HEAD
   playerImage.src = "/images/paper.png";
+=======
+  playerImage.src = "images/paper.png";
+>>>>>>> f6faaf2252d8992166320eab85a26dd6635fb851
   playerMove = 'paper';
   computerMove = computerPlay();
   playRound(playerMove, computerMove);
 });
 
 scissors.addEventListener('click', () => {
+<<<<<<< HEAD
   playerImage.src = "/images/scissors.png";
+=======
+  playerImage.src = "images/scissors.png";
+>>>>>>> f6faaf2252d8992166320eab85a26dd6635fb851
   playerMove = 'scissors';
   computerMove = computerPlay();
   playRound(playerMove, computerMove);
 });
 
 rock.addEventListener('click', () => {
+<<<<<<< HEAD
   playerImage.src = "/images/rock.png";
+=======
+  playerImage.src = "images/rock.png";
+>>>>>>> f6faaf2252d8992166320eab85a26dd6635fb851
   playerMove = 'rock';
   computerMove = computerPlay();
   playRound(playerMove, computerMove);
